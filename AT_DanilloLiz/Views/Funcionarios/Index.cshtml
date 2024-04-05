@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AT_DanilloLiz.Models.Funcionario>
+
+@{
+    ViewData["Title"] = "Index Funcionário";
+}
+
+<h1>Funcionários</h1>
+
+<p>
+    <a asp-action="Create">Cadastrar</a>
+    <form asp-controller="Funcionarios" asp-action="Index">
+        <p>
+            Nome: <input type="text" name="SearchString" />
+            <input type="submit" value="Filtrar" />
+        </p>
+    </form>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDeNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departamento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco.Rua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departamento.Nome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FuncionarioId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.FuncionarioId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.FuncionarioId">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

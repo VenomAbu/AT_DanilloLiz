@@ -1,0 +1,30 @@
+﻿@model AT_DanilloLiz.Models.Endereco
+
+@{
+    ViewData["Title"] = "Detalhes Endereço";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Endereços</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rua)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rua)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.EnderecoId">Editar</a> |
+    <a asp-action="Index">Voltar</a>
+</div>
